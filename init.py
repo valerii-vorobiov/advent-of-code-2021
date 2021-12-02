@@ -59,8 +59,8 @@ def main(args):
         if not os.path.exists(year_pos + "/" + str(d)):
             os.mkdir(year_pos + "/" + str(d))
         day_pos = year_pos + "/" + str(d)
-        if MAKE_CODE_TEMPLATE and not os.path.exists(day_pos + "/code.py"):
-            code = open(day_pos + "/code.py", "w+")
+        if MAKE_CODE_TEMPLATE and not os.path.exists(day_pos + "/main.py"):
+            code = open(day_pos + "/main.py", "w+")
             code.write(create_template(date, author))
             code.close()
         if DOWNLOAD_INPUTS and (not os.path.exists(day_pos + "/input.txt") or OVERWRITE) and USER_SESSION_ID != "":
@@ -143,7 +143,7 @@ def create_template(date, author):
     
     
     def read_input():
-        with open((__file__.rstrip("code.py") + "input.txt"), 'r') as input_file:
+        with open((__file__.rstrip("main.py") + "input.txt"), 'r') as input_file:
             return input_file.read()
     
     
