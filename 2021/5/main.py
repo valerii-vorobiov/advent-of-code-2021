@@ -58,10 +58,8 @@ class Vector:
         if self.start_y == self.end_y:
             return self.generate_horisontal_points()
         if with_diagonal:
-            diff_x = self.end_x - self.start_x
-            diff_y = self.end_y - self.start_y
-            if abs(diff_x) == abs(diff_y):
-                return self.generate_diagonal_point(diff_x, diff_y)
+            return self.generate_diagonal_point(self.end_x - self.start_x,
+                                                self.end_y - self.start_y)
         return []
 
 
