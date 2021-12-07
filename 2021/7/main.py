@@ -5,12 +5,12 @@ from statistics import mean, median
 
 
 def part_one(_input):
-    positions = sorted(list(map(int, _input.split(','))))
+    positions = list(map(int, _input.split(',')))
     return min(distance_one(positions, trend) for trend in trendlines(median, positions))
 
 
 def part_two(_input):
-    positions = sorted(list(map(int, _input.split(','))))
+    positions = list(map(int, _input.split(',')))
     return min(distance_two(positions, trend) for trend in trendlines(mean, positions))
 
 
