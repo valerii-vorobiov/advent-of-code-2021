@@ -8,7 +8,7 @@ class Graph:
         self.edges = [self.from_line(line) for line in lines.split('\n')]
         self.adj = defaultdict(list)
         self.count = 0
-        self.paths =set()
+        self.paths = set()
         for e in self.edges:
             if e[0] != end:
                 self.adj[e[0]].append(e[1])
@@ -20,12 +20,11 @@ class Graph:
     def lower_vertices(self):
         return set(i for i in self.adj)
 
-
     def all_possible_path(self, start, end, path, visited):
         visited[start] += 1
         path.append(start)
         if start == end:
-            self.count +=1 # print(path)
+            self.count += 1
 
         neig = self.adj[start]
         for n in neig:
@@ -36,17 +35,12 @@ class Graph:
         visited[start] += 1
         path.append(start)
         if start == end:
-            self.paths.add(tuple(path)) # print(path)
+            self.paths.add(tuple(path))
 
         neig = self.adj[start]
         for n in neig:
-            # if n.islower() and (n not in ['start', 'end']) and (not twice):
-            #     twice = n
             if self.check_possible_way_2(n, visited, twice):
                 self.all_possible_path_2(n, end, path.copy(), visited.copy(), twice)
-
-
-
 
     def check_possible_way(self, end, visited):
         return False if (end.islower() and end in visited) else True
